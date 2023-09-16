@@ -2,7 +2,7 @@
 
 CloudFormation allows you to model your infrastructure in a text file either JSON or YAML to describe what AWS resources you want to create and configure. CloudFormation automates the provisioning and updating of your infrastructure in a safe and controlled manner. There are no manual steps or controls that can lead to errors. CloudFormation is available at no additional charge. You pay only for the AWS resources needed to run your applications.
 
-In this project, you will be using two (2) .yaml templates which will be used in creating our infrastructure in AWS. This project will be deployed together with two (2) vulnerable EC2 instances that have exposed ports. Then, we will be using the AWS Inspector to scan our EC2 instances. 
+In this project, you will be uploading two (2) .yaml templates in Cloudformation which will be used in creating our infrastructure in AWS. This project will be deployed together with two (2) vulnerable EC2 instances that have exposed ports. Then, we will be using the AWS Inspector to scan our EC2 instances.
 
 As we all know, Amazon Inspector is a vulnerability management service that continuously scans your AWS workloads for software vulnerabilities and unintended network exposure. It automatically discovers and scans running Amazon EC2 instances, container images in Amazon Elastic Container Registry (Amazon ECR), and AWS Lambda functions for known software vulnerabilities and unintended network exposure.
 
@@ -14,6 +14,7 @@ The following items are contained in this project.
 
 - Create your VPC (Internet Gateway, Public Subnets, Route tables, and Security Groups) using **Project-VPC.yaml** template
 - Create your EC2 Instances using **Project-EC2.yaml** template
+- Set up your assessment target and template then run the scan to identify potential security issues
 
 ## DOWNLOAD THE TEMPLATES FROM THIS REPOSITORY
 
