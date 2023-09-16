@@ -20,8 +20,8 @@ The following items are contained in this project.
 
 1. Download the two (2) Cloudformation templates from the links below:
 
-- [VPC Cloudformation Template](https://github.com/ericksonaspa/Deploy-a-VPC-with-2-vulnerable-EC2-instances-using-CloudFormation-and-scan-it-with-Amazon-Inspector/blob/main/Project-VPC.yaml)
-- [EC2 Cloudformation Template](https://github.com/ericksonaspa/Deploy-a-VPC-with-2-vulnerable-EC2-instances-using-CloudFormation-and-scan-it-with-Amazon-Inspector/blob/main/Project-EC2.yaml)
+- [VPC CloudFormation Template](https://github.com/ericksonaspa/Deploy-a-VPC-with-2-vulnerable-EC2-instances-using-CloudFormation-and-scan-it-with-Amazon-Inspector/blob/main/Project-VPC.yaml)
+- [EC2 CloudFormation Template](https://github.com/ericksonaspa/Deploy-a-VPC-with-2-vulnerable-EC2-instances-using-CloudFormation-and-scan-it-with-Amazon-Inspector/blob/main/Project-EC2.yaml)
 
 2. Once done, go to your AWS Management Console and look for the CloudFormation. Open it in a new tab.
 
@@ -161,13 +161,23 @@ Now that we have verified that all of our resources are deployed, we'll go ahead
 
 ![image](https://github.com/ericksonaspa/Deploy-a-VPC-with-2-vulnerable-EC2-instances-using-CloudFormation-and-scan-it-with-Amazon-Inspector/assets/77118362/71f84cbd-9c0c-4e9f-b9c8-f45ea2a4ccae)
 
-12. In this example, the recommendation is to modify the security to remove the access from the internet on port 21 (FTP). 
+12. In this example, the recommendation is to modify the security to remove access from the internet on port 21 (FTP). 
 
 ![image](https://github.com/ericksonaspa/Deploy-a-VPC-with-2-vulnerable-EC2-instances-using-CloudFormation-and-scan-it-with-Amazon-Inspector/assets/77118362/91e7fe28-2a2a-46b6-8de9-1f79793d4e6d)
 
 13. It will take you to another tab. From there, you may now proceed with editing the inbound rules. 
 
 ![image](https://github.com/ericksonaspa/Deploy-a-VPC-with-2-vulnerable-EC2-instances-using-CloudFormation-and-scan-it-with-Amazon-Inspector/assets/77118362/ace52045-8cd4-494e-8822-7c6fca48d240)
+
+14. You may also proceed in downloading the report of this assessment run by going back to the Amazon Inspector, and then go to **Assessment Runs**. Tick the checkbox and then hit the **Download report**. 
+
+![image](https://github.com/ericksonaspa/Deploy-a-VPC-with-2-vulnerable-EC2-instances-using-CloudFormation-and-scan-it-with-Amazon-Inspector/assets/77118362/f504f26f-d969-4d15-ba4a-7db781e7459c)
+
+15. Select your preferred report type and report format and then click the **Generate report**. 
+
+![image](https://github.com/ericksonaspa/Deploy-a-VPC-with-2-vulnerable-EC2-instances-using-CloudFormation-and-scan-it-with-Amazon-Inspector/assets/77118362/ecf591a8-a023-418c-8c6f-91c89dcd667e)
+
+![image](https://github.com/ericksonaspa/Deploy-a-VPC-with-2-vulnerable-EC2-instances-using-CloudFormation-and-scan-it-with-Amazon-Inspector/assets/77118362/7c26192d-a122-4039-9018-30b8656fb94d)
 
 Congratulations! You have finished this walkthrough and learned how to deploy and read CloudFormation templates. Also, you have learned how to set up your assessment for your EC2 instances and run a scan to identify potential security issues and remediate them. 
 
