@@ -1,0 +1,84 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: This template creates vulnerable EC2 instance with exposed ports
+
+Metadata:
+  AWS::CloudFormation::Interface: 
+    ParameterGroups:
+      - 
+        Label: 
+          default: "Export VPC Stack Name"
+        Parameters:
+          - ExportVpcStackName
+      - 
+        Label: 
+          default: "EC2 Parameters"
+        Parameters:
+          - AmazonImageID
+          - InstanceType
+
+Parameters:
+  ExportVpcStackName:
+    Description: The name of the vpc stack that exports values
+    Type: String
+
+  InstanceType:
+    Description: Vulnerable Server EC2 instance type
+    Type: String
+    Default: t2.micro
+    AllowedValues:
+      - t1.micro
+      - t2.nano
+      - t2.micro
+    ConstraintDescription: must be a valid EC2 instance type.
+
+  AmazonImageID:
+    Description: The ID of the Amazon machine image (AMI)
+    Type: String
+
+Resources:
+  EC2Instance1:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: !Ref InstanceType
+      SubnetId:
+        Fn::ImportValue: !Sub ${ExportVpcStackName}-PublicSubnet1
+      SecurityGroupIds:
+        - Fn::ImportValue: !Sub ${ExportVpcStackName}-VulnerableServerSecurityGroup1
+      ImageId: !Ref AmazonImageID 
+      Tags:
+        - Key: Name
+          Value: EC2 | Public Subnet 1
+      UserData:
+        Fn::Base64:
+          !Sub |
+            #!/bin/bash -xe
+            sudo yum update -y
+            sudo yum install httpd -y
+            sudo amazon-linux-extras install epel -y
+            service httpd start
+            cd /var/www/html
+            echo "<html><h1>Welcome to my vulnerable EC2 instance 1: $(hostname -f)</h1></html>" > index.html
+
+  EC2Instance2:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: !Ref InstanceType
+      SubnetId:
+        Fn::ImportValue: !Sub ${ExportVpcStackName}-PublicSubnet2
+      SecurityGroupIds:
+        - Fn::ImportValue: !Sub ${ExportVpcStackName}-VulnerableServerSecurityGroup2
+      ImageId: !Ref AmazonImageID 
+      Tags:
+        - Key: Name
+          Value: EC2 | Public Subnet 2
+      UserData:
+        Fn::Base64:
+          !Sub |
+            #!/bin/bash -xe
+            sudo yum update -y
+            sudo yum install httpd -y
+            sudo amazon-linux-extras install epel -y
+            service httpd start
+            cd /var/www/html
+            echo "<html><h1>Welcome to my vulnerable EC2 instance 2: $(hostname -f)</h1></html>" > index.html
