@@ -146,43 +146,31 @@ Now that we have verified that all of our resources are deployed, we'll go ahead
 
 ![image](https://github.com/ericksonaspa/Deploy-a-VPC-with-2-vulnerable-EC2-instances-using-CloudFormation-and-scan-it-with-Amazon-Inspector/assets/77118362/0f654472-6fed-4567-b91c-1ff0d4bc7ca5)
 
+9. Wait until the status changes to **Analysis Complete**. Tick the checkbox, you will observe that it has 8 findings with the start and end of the assessment duration. Click on the numbers found on **Findings**. 
 
+![image](https://github.com/ericksonaspa/Deploy-a-VPC-with-2-vulnerable-EC2-instances-using-CloudFormation-and-scan-it-with-Amazon-Inspector/assets/77118362/e5833652-03f1-435c-9aad-cb8899daf258)
 
+10. As what you can see, these are the potential security issues found after running the assessment with our Amazon Inspector. 
 
+![image](https://github.com/ericksonaspa/Deploy-a-VPC-with-2-vulnerable-EC2-instances-using-CloudFormation-and-scan-it-with-Amazon-Inspector/assets/77118362/1f89b99c-5481-4d38-a8a7-349c512af6b9)
 
+11. To view the full details of each finding, click the arrow to expand.
 
+![image](https://github.com/ericksonaspa/Deploy-a-VPC-with-2-vulnerable-EC2-instances-using-CloudFormation-and-scan-it-with-Amazon-Inspector/assets/77118362/285f9e13-cf4c-4f8a-ae79-89884e5588e3)
 
+![image](https://github.com/ericksonaspa/Deploy-a-VPC-with-2-vulnerable-EC2-instances-using-CloudFormation-and-scan-it-with-Amazon-Inspector/assets/77118362/71f84cbd-9c0c-4e9f-b9c8-f45ea2a4ccae)
 
+12. In this example, the recommendation is to modify the security to remove the access from the internet on port 21 (FTP). 
 
+![image](https://github.com/ericksonaspa/Deploy-a-VPC-with-2-vulnerable-EC2-instances-using-CloudFormation-and-scan-it-with-Amazon-Inspector/assets/77118362/91e7fe28-2a2a-46b6-8de9-1f79793d4e6d)
 
+13. It will take you to another tab. From there, you may now proceed with editing the inbound rules. 
 
+![image](https://github.com/ericksonaspa/Deploy-a-VPC-with-2-vulnerable-EC2-instances-using-CloudFormation-and-scan-it-with-Amazon-Inspector/assets/77118362/ace52045-8cd4-494e-8822-7c6fca48d240)
 
+Congratulations! You have finished this walkthrough and learned how to deploy and read CloudFormation templates. Also, you have learned how to set up your assessment for your EC2 instances and run a scan to identify potential security issues and remediate them. 
 
+For more information about the two (2) services we have used, kindly refer to the following links: 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- [AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)
+- [Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/what-is-inspector.html)
